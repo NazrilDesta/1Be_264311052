@@ -1,0 +1,30 @@
+SOAL 2: Operasi CRUD Dasar
+
+1. [CREATE]
+INSERT INTO pengguna (id_pengguna, nama, role, status_aktif) VALUES
+('U001', 'Budi', 'penghuni', 'aktif'),
+('U002', 'Sari','admin', 'aktif'),
+('U003', 'Tamu A', 'tamu', 'aktif');
+
+INSERT INTO pintu (id_pintu, status_pintu) VALUES
+('P001', 'terkunci'),
+('P002', 'terbuka'),
+('P003', 'terkunci');
+
+INSERT INTO log_akses (id_akses, waktu_akses, status_akses, status_pintu, id_pengguna, id_pintu) VALUES
+('A001', '2026-10-13 08:00:00', 'Berhasil', 'terbuka',  'U001', 'P001'),
+('A002', '2026-10-13 08:05:00', 'Gagal', 'terkunci', 'U003', 'P001'),
+('A003', '2026-10-13 08:06:00', 'Gagal', 'terkunci', 'U003', 'P002');
+
+2. [READ]
+SELECT * FROM pengguna;
+
+3. [UPDATE]
+UPDATE log_akses
+SET status_akses = 'Berhasil',
+    status_pintu = 'terbuka'
+WHERE id_akses = 'A002';
+
+4. [DELETE]
+DELETE FROM log_akses
+WHERE id_akses = 'A003';
