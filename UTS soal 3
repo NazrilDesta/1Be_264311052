@@ -1,0 +1,17 @@
+SOAL 3: Query Kompleks & Agregasi Laporan
+
+SELECT nama, COUNT(id_akses) AS total_akses
+FROM log_akses
+JOIN pengguna ON log_akses.id_pengguna = pengguna.id_pengguna
+WHERE DATE(waktu_akses) = '2026-10-13'
+GROUP BY pengguna.id_pengguna, nama;
+
+
+hasilnya
++-------+-------------+
+| nama  | total_akses |
++-------+-------------+
+| Andi  |      3      |
+| Budi  |      2      |
+| Citra |      4      |
++-------+-------------+
